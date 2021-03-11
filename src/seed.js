@@ -98,14 +98,14 @@ export default [
       "Favorite Anime": ""
     }
   }, {
-    "started": "2021-03-01",
-    "finished": "2021-03-04",
+    "started": "",
+    "finished": "",
     "position": 26,
     "challenge": "Watch an anime that began airing the same year you joined MAL",
     "challengeLinks": null,
-    "title": "Kobayashi-san Chi no Maid Dragon",
-    "id": "33206",
-    "imgUrl": "https://cdn.myanimelist.net/images/anime/5/85434.jpg",
+    "title": "",
+    "id": "",
+    "imgUrl": "",
     "details": null
   },
   {
@@ -122,17 +122,17 @@ export default [
       "Director": ""
     }
   }, {
-    "started": "2021-01-19",
-    "finished": "2021-02-02",
+    "started": "",
+    "finished": "",
     "position": 105,
     "challenge": "Watch an anime with a human main character that is not Japanese",
     "challengeLinks": null,
-    "title": "Great Pretender",
-    "id": "40052",
-    "imgUrl": "https://cdn.myanimelist.net/images/anime/1418/107954.jpg",
+    "title": "",
+    "id": "",
+    "imgUrl": "",
     "details": {
-      "Main Character": "Laurent Thierry",
-      "Nationality": "French",
+      "Main Character": "",
+      "Nationality": "",
     }
   }, {
     "started": "",
@@ -638,14 +638,14 @@ export default [
     "imgUrl": "",
     "details": null
   }, {
-    "started": "2021-02-24",
-    "finished": "2021-02-28",
+    "started": "",
+    "finished": "",
     "position": 31,
     "challenge": "Watch an anime that began airing between 2016 and 2020",
     "challengeLinks": null,
-    "title": "Hinamatsuri",
-    "id": "36296",
-    "imgUrl": "https://cdn.myanimelist.net/images/anime/1580/93526.jpg",
+    "title": "",
+    "id": "",
+    "imgUrl": "",
     "details": null
   },
   {

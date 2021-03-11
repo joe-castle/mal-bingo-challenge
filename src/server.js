@@ -4,20 +4,28 @@ const cors = require('cors')
 
 const app = express()
 
-app.use(cors())
-
 function fetchFromUrl(url, response) {
   return fetch(url)
-    .then(res => {
-      if (!res.ok) {
-        throw Error(res)
-      }
+  .then(res => {
+    if (!res.ok) {
+      throw Error(res)
+    }
+    
+    return res.json()
+  })
+  .catch(err => {
+    response.status(404).json(err)
+  })
+}
 
-      return res.json()
-    })
-    .catch(err => {
-      response.status(404).json(err)
-    })
+app.use(cors())
+
+if (process.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'build')));
+
+  app.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
 }
 
 app.get('/anime/:id', (req, response) => {
