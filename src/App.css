@@ -1,38 +1,157 @@
-.App {
+body {
+  padding: 0 0 2em 0;
+}
+
+.dropdown-menu {
+  left: -310%;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  cursor: pointer;
+}
+
+.bingo-card-container {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.bingo-card {
+  border: 1px solid rgba(0,0,0,0.25);
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  margin-bottom: -6px;
+}
+
+.bingo-card-foreground {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.bingo-card-foreground:hover {
+  cursor: pointer;
+  background: rgba(0,0,0,0.25);
+}
+
+.bingo-card.highlight {
+  background: rgb(219, 59, 59);
+}
+
+.bingo-card.complete {
+  background: rgb(46, 139, 87);
+}
+
+.bingo-card.watching {
+  background: rgb(147, 112, 216);
+}
+
+.bingo-card.complete .bingo-card-foreground:hover {
+  background: rgb(46, 139, 87, .5);
+}
+
+.bingo-card.watching .bingo-card-foreground.watching:hover {
+  background: rgb(147, 112, 216, .5);
+}
+
+.bingo-card img {
+  border-radius: 50%;
+  position: absolute;
+  height: 100%;
+  left: calc(13%)
+}
+
+.bingo-card span {
+  font-size: 1.5em;
+  font-weight: bold;
+  position: absolute;
+  top: calc(30%);
+  width: 100%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.bingo-card span.filled {
   color: white;
+  font-size: 1.2em;
+  top: calc(73%);
+  padding-right: .1em;
+  text-align: right;
 }
 
-.App-link {
-  color: #61dafb;
+.bingo-card span:not(.complete *, .watching *) {
+  color: black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+textarea {
+  height: 150px;
+}
+
+pre {
+  background: rgba(0,0,0,0.05);
+  padding: 1em;
+}
+
+
+/**
+ * Loader
+ */
+.lds-ellipsis {
+  display: inline-block;
+  position: absolute;
+  width: 80px;
+  height: 100%;
+  top: 13px;
+  left: 42%;
+}
+.lds-ellipsis div {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fff;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
   }
 }
