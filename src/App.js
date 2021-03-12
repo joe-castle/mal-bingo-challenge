@@ -44,7 +44,7 @@ function App() {
       Object.keys(popovers).forEach((popover) => popovers[popover].dispose())
       popovers = null
     }
-  }, [bbCode])
+  })
 
   return (
     <div className="container">
@@ -56,10 +56,9 @@ function App() {
           tabIndex="0"
           data-bs-toggle="popover"
           data-bs-content={card.challenge}
-          date-bs-trigger="focus"
           data-bs-placement="top"
+          data-bs-title={card.title ? card.title : null}
           role="button"
-          title={card.title ? card.title : null}
           className={classNames("bingo-card", { complete: card.title && card.started && card.finished, watching: card.title && card.started && !card.finished, highlight: card.highlight })}
           onMouseEnter={() => popovers[card.challenge].show()}
           onMouseLeave={() => popovers[card.challenge].hide()}
@@ -98,7 +97,7 @@ function App() {
                 <span className="input-group-text" id="basic-addon1">#</span>
                 <input type="text" className={classNames("form-control", { 'is-valid': activeCard.loadingSuccess, 'is-invalid': activeCard.loadingFailed })} placeholder="MAL ID" onChange={(e) => dispatch(updateIdAndFetchAnime(e.target.value))} value={activeCard.id} disabled={activeCard.loading} />
                 {activeCard.loading && <Loader />}
-                {activeCard.loadingFailed && <div class="invalid-feedback">Anime with ID {activeCard.id} doesn't exist.</div>}
+                {activeCard.loadingFailed && <div className="invalid-feedback">Anime with ID {activeCard.id} doesn't exist.</div>}
               </div>
 
               <div className="input-group mb-3">
@@ -153,9 +152,10 @@ function App() {
 
             </div>
             <div className="modal-footer">
-              <button className="btn btn-success" onClick={() => { 
-                modal.hide() 
-                dispatch(saveCards()) 
+              <button className="btn btn-success" onClick={(e) => {
+                const { challenge } = activeCard
+                modal.hide()
+                dispatch(saveCards())
               }}>Save</button>
               <button className="btn btn-warning" onClick={() => dispatch(clearActiveCard())}>Clear</button>
             </div>

@@ -5,7 +5,7 @@ import { fetchTitles } from "./titleSearchSlice"
 
 export const fetchAnime = createAsyncThunk(
   'activeCard/fetchAnimeStatus',
-  (id) => fetch(`http://localhost:3001/anime/${id}`)
+  (id) => fetch(`${process.env.NODE_ENV !== 'development' ? '/mal-challenge/' : 'http://localhost:3001/'}anime/${id}`)
     .then((res) => {
       if (!res.ok) {
         throw Error(res.statusText)

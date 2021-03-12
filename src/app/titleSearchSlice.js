@@ -4,7 +4,7 @@ import { clearCard, throttle } from "../util"
 
 export const fetchTitles = createAsyncThunk(
   'titleSearch/fetchTitlesStatus',
-  (title) => fetch(`http://localhost:3001/anime/search/${title}`)
+  (title) => fetch(`${process.env.NODE_ENV !== 'development' ? '/mal-challenge/' : 'http://localhost:3001/'}anime/search/${title}`)
     .then((res) => {
       if (!res.ok) {
         throw Error(res.statusText)

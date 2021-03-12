@@ -20,12 +20,8 @@ function fetchFromUrl(url, response) {
 
 app.use(cors())
 
-if (process.NODE_ENV === 'production') {
+if (process.env.NODE_ENV !== 'development') {
   app.use(express.static(path.join(__dirname, 'build')));
-
-  app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-  });
 }
 
 app.get('/anime/:id', (req, response) => {
